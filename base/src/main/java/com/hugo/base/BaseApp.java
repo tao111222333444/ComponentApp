@@ -1,6 +1,10 @@
 package com.hugo.base;
 
 import android.app.Application;
+import android.support.annotation.CallSuper;
+
+import com.hugo.base.utils.LogUtil;
+import com.hugo.base.utils.SdkManager;
 
 /**
  * @author 作者：hugo
@@ -9,6 +13,20 @@ import android.app.Application;
  * 描述：base App 整个项目的  基础application
  */
 public abstract class BaseApp extends Application {
+
+    public static Application INSTANCE;
+
+    @Override @CallSuper
+    public void onCreate() {
+        super.onCreate();
+        INSTANCE = (Application) getApplicationContext();
+        com.facebook.stetho.common.LogUtil.e("这是baseApp");
+        if(BuildConfig.DEBUG) {
+            SdkManager.initFacebookStetho(INSTANCE);
+            SdkManager.initLeakCanary(INSTANCE);
+        }
+    }
+
     /**
      * application 初始化
      * @param application

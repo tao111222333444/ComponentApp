@@ -1,1 +1,8 @@
-include ':app', ':base', ':communication'
+include ':app'
+
+//这个是所有组件的通用基础模块
+include ':base'
+//这个是用于组件间进行数据交互用的 服务接口和数据类
+include ':communication'
+//这个是登录模块
+include ':login'
