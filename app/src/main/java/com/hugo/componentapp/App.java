@@ -2,9 +2,10 @@ package com.hugo.componentapp;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
 
 import com.hugo.base.BaseApp;
+
+import androidx.multidex.MultiDex;
 
 /**
  * @author 作者：hugo

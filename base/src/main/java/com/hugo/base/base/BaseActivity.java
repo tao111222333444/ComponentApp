@@ -1,7 +1,7 @@
 package com.hugo.base.base;
 
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * @author 作者：hugo

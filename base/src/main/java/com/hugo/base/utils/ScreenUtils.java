@@ -5,10 +5,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.WindowManager;
+
+import androidx.annotation.RequiresApi;
 
 /**
  * 获取屏幕尺寸的工具

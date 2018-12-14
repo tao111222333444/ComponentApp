@@ -1,10 +1,11 @@
 package com.hugo.base;
 
 import android.app.Application;
-import android.support.annotation.CallSuper;
 
 import com.hugo.base.utils.LogUtil;
 import com.hugo.base.utils.SdkManager;
+
+import androidx.annotation.CallSuper;
 
 /**
  * @author 作者：hugo
