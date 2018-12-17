@@ -5,6 +5,7 @@ import android.app.Activity;
 import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 
 
 /**
@@ -14,8 +15,7 @@ import java.util.Set;
  * 修改备注  :
  */
 public class ActivityControl {
-    private Set<Activity> allActivities = new HashSet<>();
-    private WeakReference<Activity> currentAtivity;
+    private Stack<Activity> allActivities;
 
     /**
      * 禁止外部访问
@@ -36,53 +36,25 @@ public class ActivityControl {
     private static class Inner{
         private static ActivityControl inner = new ActivityControl();
     }
-    /**
-     * 描述      :  设置当前运行的Activity。
-     * 方法名    :  setCurrentAtivity
-     * param    :  currentAtivity 设置当前运行的Activity
-     * 返回类型  :  void
-     * 创建人    : ghy
-     * 创建时间  : 2017/2/21 19:55
-     * 修改人    :
-     * 修改时间
-     * 修改备注
-     * throws
-     */
-    public void setCurrentAtivity(Activity currentAtivity) {
-        this.currentAtivity = new WeakReference<>(currentAtivity);
-    }
 
     /**
      * 描述      :  获取当前运行的Activity,有可能返回null
      * 方法名    :  getCurrentAtivity
      * param    : 无
      * 返回类型  : BaseActivity
-     * 创建人    : ghy
-     * 创建时间  : 2017/2/21 19:56
-     * 修改人    :
-     * 修改时间
-     * 修改备注
-     * throws
      */
     public Activity getCurrentAtivity() {
-        return currentAtivity.get();
+        return allActivities.lastElement();
     }
 
     /**
      * 描述      : 添加Activity到管理
      * 方法名    :  addActivity
      * param    :   act Activity
-     * 返回类型  : void
-     * 创建人    : ghy
-     * 创建时间  : 2017/2/21 19:57
-     * 修改人    :
-     * 修改时间
-     * 修改备注
-     * throws
      */
     public void addActivity(Activity act) {
         if (allActivities == null) {
-            allActivities = new HashSet<>();
+            allActivities = new Stack<>();
         }
         allActivities.add(act);
     }
@@ -92,17 +64,22 @@ public class ActivityControl {
      * 方法名    :  removeActivity
      * param    :   act Activity
      * 返回类型  : void
-     * 创建人    : ghy
-     * 创建时间  : 2017/2/21 19:57
-     * 修改人    :
-     * 修改时间
-     * 修改备注
-     * throws
      */
     public void removeActivity(Activity act) {
         if (allActivities != null) {
             allActivities.remove(act);
         }
+    }
+
+    /**
+     * 是否还有activity
+     * @return
+     */
+    public boolean isActivity(){
+        if(allActivities != null ){
+            return !allActivities.isEmpty();
+        }
+        return false;
     }
 
 
@@ -112,11 +89,6 @@ public class ActivityControl {
      * param    :无
      * 返回类型  :void
      * 创建人    : ghy
-     * 创建时间  : 2017/2/21 19:58
-     * 修改人    :
-     * 修改时间
-     * 修改备注
-     * throws
      */
     public void finishiAll() {
         if (allActivities != null) {
@@ -132,12 +104,6 @@ public class ActivityControl {
      * 方法名    :  finishiAll
      * param    :无
      * 返回类型  :void
-     * 创建人    : ghy
-     * 创建时间  : 2017/2/21 19:58
-     * 修改人    :
-     * 修改时间
-     * 修改备注
-     * throws
      */
     public void finishiAllExcept(Activity activity) {
         if (allActivities != null) {
