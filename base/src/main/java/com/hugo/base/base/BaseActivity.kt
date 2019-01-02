@@ -14,11 +14,12 @@ import com.hugo.base.utils.ToastUtil
  * 版本：v1.0
  * 描述：基础
  */
- abstract class BaseActivity:AppCompatActivity(),BaseUnifiedFunction,LifecycleObserver{
+ abstract class BaseActivity:AppCompatActivity(),BaseUnifiedFunction{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayout())
+        lifecycle.addObserver(getLifeListener())
         ActivityControl.getInstance().addActivity(this)
     }
 

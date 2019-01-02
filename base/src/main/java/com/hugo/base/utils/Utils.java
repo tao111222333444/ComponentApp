@@ -7,12 +7,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-
-import com.hugo.base.BaseApp;
 
 import java.util.List;
 import java.util.Random;
@@ -141,14 +138,6 @@ public class Utils {
         return (a == null) ? (b == null) : a.equals(b);
     }
 
-    /**
-     * 检查是否有可用网络
-     */
-    public static boolean isNetworkConnected() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) BaseApp.INSTANCE.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        assert connectivityManager != null;
-        return connectivityManager.getActiveNetworkInfo() != null;
-    }
 
 
     /**

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.hugo.base.BaseApp;
+import com.hugo.base.base.BaseApp;
 
 /**
  * @author 作者：hugo

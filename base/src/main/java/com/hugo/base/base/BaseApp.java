@@ -1,7 +1,8 @@
-package com.hugo.base;
+package com.hugo.base.base;
 
 import android.app.Application;
 
+import com.hugo.base.BuildConfig;
 import com.hugo.base.utils.LogUtil;
 import com.hugo.base.utils.SdkManager;
 

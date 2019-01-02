@@ -3,6 +3,7 @@ package com.hugo.base.base
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.lifecycle.LifecycleObserver
 
 /**
  * @author  作者：hugo
@@ -25,4 +26,9 @@ interface BaseUnifiedFunction {
      * 设置title
      */
     fun setTitle(title:String)
+
+    /**
+     * 设置生命监听
+     */
+    fun getLifeListener():LifecycleObserver
 }
