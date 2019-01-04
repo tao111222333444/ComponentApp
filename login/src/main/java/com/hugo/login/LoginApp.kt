@@ -1,8 +1,8 @@
 package com.hugo.login
 
 import android.app.Application
-import com.facebook.stetho.common.LogUtil
-import com.hugo.base.BaseApp
+import com.hugo.base.base.BaseApp
+import com.hugo.base.utils.LogUtil
 
 /**
  * @author  作者：hugo
@@ -11,17 +11,18 @@ import com.hugo.base.BaseApp
  * 描述：
  */
 class LoginApp: BaseApp() {
+    override fun initModuleApp(application: Application) {
+        LogUtil.e("hugo","这是 LoginApp initModuleApp")
+    }
+
+    override fun initModuleData(application: Application) {
+        LogUtil.e("hugo","这是 LoginApp initModuleData")
+    }
+
     override fun onCreate() {
         super.onCreate()
-        LogUtil.e("这是 LoginApp")
+        LogUtil.e("hugo","这是 LoginApp")
     }
 
-    override fun initModuleApp(application: Application?) {
-
-    }
-
-    override fun initModuleData(application: Application?) {
-
-    }
 
 }

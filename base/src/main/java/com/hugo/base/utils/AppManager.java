@@ -10,23 +10,23 @@ import java.util.Stack;
 
 /**
  * 类描述    :管理所有Activity
- * 类名称    : ActivityControl
+ * 类名称    : AppManager
  * 修改时间  :
  * 修改备注  :
  */
-public class ActivityControl {
+public class AppManager {
     private Stack<Activity> allActivities;
 
     /**
      * 禁止外部访问
      */
-    private ActivityControl(){}
+    private AppManager(){}
 
     /**
      * 获取对象
      * @return ActivityControl
      */
-    public static ActivityControl getInstance(){
+    public static AppManager getInstance(){
         return Inner.inner;
     }
 
@@ -34,7 +34,7 @@ public class ActivityControl {
      * 静态内部类实现单例
      */
     private static class Inner{
-        private static ActivityControl inner = new ActivityControl();
+        private static AppManager inner = new AppManager();
     }
 
     /**
@@ -98,6 +98,22 @@ public class ActivityControl {
         }
     }
 
+    /**
+     * 结束当前Activity
+     */
+    public void finishActivity(){
+        finishiAllExcept(getCurrentAtivity());
+    }
+    /**
+     * 结束传入的Activity
+     */
+    public void finishActivity(Activity activity){
+        if(activity != null){
+            if(!activity.isFinishing()){
+                activity.finish();
+            }
+        }
+    }
 
     /**
      * 描述      :关闭所有Activity 除了对应的activity

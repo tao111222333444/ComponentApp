@@ -58,7 +58,7 @@ object RxUtils {
             return@ObservableTransformer responseObservable.flatMap(Function<BaseResponse<T>,Observable<T>> {baseResponse ->
                 return@Function if (baseResponse.errorCode >= BaseResponse.SUCCESS
                     && baseResponse.data != null
-                    && Utils.isNetworkConnected()) {
+                    && NetworkUtils.isNetworkConnected()) {
                 createData(baseResponse.data)
             } else {
                 Observable.error(ServerException(
@@ -77,7 +77,7 @@ object RxUtils {
         return ObservableTransformer{ responseObservable ->
             return@ObservableTransformer responseObservable.flatMap(Function<BaseResponse<T>,Observable<T>>{ baseResponse ->
                 return@Function if (baseResponse.errorCode >= BaseResponse.SUCCESS
-                        && Utils.isNetworkConnected()) {
+                        && NetworkUtils.isNetworkConnected()) {
                     //TODO  这是是未完成的
                     createData (Utils.cast(Any()))
                 } else {

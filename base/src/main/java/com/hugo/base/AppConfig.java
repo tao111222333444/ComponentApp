@@ -8,8 +8,9 @@ package com.hugo.base;
  * 用于在
  */
 public class AppConfig {
+    private static final String LoginApp = "com.hugo.login.LoginApp";
 
-    public static String[] moduleApp = {
-
+    public static String[] moduleApps = {
+            LoginApp
     };
 }

@@ -1,9 +1,6 @@
 package com.hugo.base.base
 
-import androidx.annotation.IdRes
-import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
-import androidx.lifecycle.LifecycleObserver
 
 /**
  * @author  作者：hugo
@@ -11,7 +8,7 @@ import androidx.lifecycle.LifecycleObserver
  * 版本：v1.0
  * 描述：统一activity 和 fragment
  */
-interface BaseUnifiedFunction {
+interface BaseUnifiedFunction<VM:BaseViewModel> {
 
     fun showToast(message:String)
 
@@ -28,7 +25,27 @@ interface BaseUnifiedFunction {
     fun setTitle(title:String)
 
     /**
-     * 设置生命监听
+     * 初始化界面观察者的监听
      */
-    fun getLifeListener():LifecycleObserver
+    fun initViewObservable()
+
+    /**
+     * 初始化 页面数据
+     */
+    fun initData()
+
+    /**
+     * Activity初始化 View
+     */
+    fun initView()
+
+
+    /**
+     * 设置ViewModel
+     */
+    fun getViewModel1():VM?{
+        return null
+    }
+
+
 }

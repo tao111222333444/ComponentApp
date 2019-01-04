@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 
 import com.hugo.base.base.BaseApp;
 
+
 /**
  * @author 作者：hugo
  * @date 时间：2018/12/17.
