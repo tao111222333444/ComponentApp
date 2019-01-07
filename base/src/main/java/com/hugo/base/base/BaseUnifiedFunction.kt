@@ -1,5 +1,6 @@
 package com.hugo.base.base
 
+import android.os.Bundle
 import androidx.annotation.StringRes
 
 /**
@@ -14,30 +15,33 @@ interface BaseUnifiedFunction<VM:BaseViewModel> {
 
     fun showToast(@StringRes message:Int)
 
+    fun showIDialog()
+
+    fun showIDialog(message:String)
+
     /**
      * 设置布局
      */
-    fun getLayout(): Int
+    fun getLayout(savedInstanceState: Bundle?): Int
+
+    /**
+     * 获取VIewModel的id
+     * @return BR的id
+     */
+    fun getVariableId():Int
 
     /**
      * 设置title
      */
     fun setTitle(title:String)
 
-    /**
-     * 初始化界面观察者的监听
-     */
-    fun initViewObservable()
+
 
     /**
      * 初始化 页面数据
      */
     fun initData()
 
-    /**
-     * Activity初始化 View
-     */
-    fun initView()
 
 
     /**

@@ -1,4 +1,4 @@
-package com.hugo.base;
+package com.hugo.base.config;
 
 /**
  * @author 作者：hugo

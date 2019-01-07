@@ -84,7 +84,7 @@
 }
 
 ###保留 application 路径类不被混淆
--keep com.hugo.base.AppConfig{*;}
+-keep com.hugo.base.config.AppConfig{*;}
 
 #####################记录生成的日志数据,gradle build时在本项目根目录输出################
 -dump class_files.txt       #apk 包内所有 class 的内部结构

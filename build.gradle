@@ -20,6 +20,9 @@ buildscript {
         //测试
         test_runner = "androidx.test:runner:1.1.1"
         test_core = "androidx.test.espresso:espresso-core:3.1.1"
+
+        //ARouter 配置
+        ARouter_compiler = "com.alibaba:arouter-compiler:1.2.2"
     }
     repositories {
         google()

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.hugo.base.BuildConfig;
+import com.hugo.base.config.ModuleAppInit;
 import com.hugo.base.utils.AppManager;
 import com.hugo.base.utils.LogUtil;
 import com.hugo.base.utils.SdkManager;
@@ -19,7 +20,7 @@ import androidx.annotation.CallSuper;
  * 版本：v1.0
  * 描述：base App 整个项目的  基础application
  */
-public abstract class BaseApp extends Application {
+public abstract class BaseApp extends Application implements ModuleAppInit {
 
     public static Application INSTANCE;
 
@@ -87,15 +88,5 @@ public abstract class BaseApp extends Application {
         ToastUtil.clear();
     }
 
-    /**
-     * application 初始化
-     * @param application
-     */
-    public abstract void initModuleApp(Application application);
 
-    /**
-     *  application  初始化后的自定义操作
-     * @param application
-     */
-    public abstract void initModuleData(Application application);
 }

@@ -6,3 +6,5 @@ include ':base'
 include ':communication'
 //这个是登录模块
 include ':login'
+//dialog 模块
+include ':idialog'
