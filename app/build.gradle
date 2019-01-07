@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
@@ -17,6 +19,12 @@ android {
         testInstrumentationRunner rootProject.testInstrumentationRunner
         //方法数超过65535解决方法64K MultiDex分包方法
         multiDexEnabled true
+        //阿里 ARouter 配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
     buildTypes {
         release {
@@ -38,10 +46,11 @@ static def releaseTime() {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //方法数超过65535解决方法64K MultiDex分包方法
-    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation rootProject.test_runner
     androidTestImplementation rootProject.test_core
     implementation project(path: ':base')
+    implementation project(path: ':login')
 }
