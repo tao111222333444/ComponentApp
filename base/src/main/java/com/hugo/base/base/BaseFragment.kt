@@ -93,7 +93,9 @@ abstract class  BaseFragment<V: ViewDataBinding,VM:BaseViewModel> : RxFragment()
 
         return binding.root
     }
-
+    /**
+     * 创建ViewModel
+     */
     private fun<T: ViewModel> createViewModel(fragment: Fragment, modelClass: Class<T>): T? {
         return ViewModelProviders.of(fragment).get(modelClass)
     }

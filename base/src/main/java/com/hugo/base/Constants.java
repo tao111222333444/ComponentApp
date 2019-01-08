@@ -8,5 +8,7 @@ package com.hugo.base;
  */
 public class Constants {
 
+    public static final boolean DEBUG = BuildConfig.DEBUG;
+
     public static final String BASE_URL = "http://www.wanandroid.com/";
 }

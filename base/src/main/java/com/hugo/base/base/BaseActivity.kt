@@ -96,7 +96,9 @@ import kotlin.reflect.KClass
         super.onDestroy()
 
     }
-
+    /**
+     * 创建ViewModel
+     */
     fun <T : ViewModel?> createViewModel(activity:FragmentActivity, cls :Class<T> ): T? {
         return ViewModelProviders.of(activity).get(cls)
     }
